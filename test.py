@@ -20,21 +20,38 @@ dataPointsToRetrieve = 15
 
 def getCodeFromSensor():
 	fullUrl = urlBase + deviceID + '/' + getFunc + '/?access_token=' + access_token 
-	r = requests.get(fullUrl)
-	if r.status_code > 199 and r.status_code < 300:
-		return r.json()['result']
-	else:
-		print str(r.content)
+	try:
+		r = requests.get(fullUrl, timeout=2)
+		if r.status_code > 199 and r.status_code < 300:
+			# print json.dumps(r.json())
+			return r.json()
+		else:
+			print str(r.content)
+			return None	
+	except Exception, e:
+		print str(e)
 		return None
+	
+
+def getFullSetOfResults():
+	session[s] = [None] * dataPointsToRetrieve
+	for x in xrange(0,len(session[s])):
+		session[s][x] = getCodeFromSensor()
 
 
 
 @app.route('/', methods=['GET'])
 def gimmeResults():
-	session[s] = [None] * dataPointsToRetrieve
-	for x in xrange(0,len(session[s])):
-		session[s][x] = getCodeFromSensor()
+	getFullSetOfResults()
 	return json.dumps(session[s])
+
+
+
+@app.route('/web', methods=['GET'])
+def web():
+	getFullSetOfResults()
+	return render_template('index.html', data=session[s])
+
 
 
 if __name__ == "__main__":
