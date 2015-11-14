@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1>Current Value at Pin A0:</h1>
+		<br>
+		<h2>The value is: <span id="val">NO VALUE YET</span></h2>
+		<script type="text/javascript">
+			var deviceID = "1f0036000147343337373738";
+			var accessToken = "25dfc450c2733a52989c60ddc96c0944e45f54c1";
+			var getFunc = "analog_value"
+
+			window.setInterval(function() {
+				requestURL = "https://api.spark.io/v1/devices/" + deviceID + "/" + getFunc + "/?access_token=" + accessToken;
+				$.getJSON(requestURL, function(json){
+					/** Need to store values into an Array/SQL table */
+					$('#val').text(json.result + " units");
+				});
+			}, 1000);
+		</script>
+	</body>
+</html>
