@@ -48,12 +48,12 @@ def getCodeFromSensor(fullUrl):
 def getFullSetOfResults():
 	session[s1] = [None] * dataPointsToRetrieve
 	for x in xrange(0,len(session[s1])):
-		session[s1][x] = getCodeFromSensor()
+		session[s1][x] = getForFunc1()
 
 
 	session[s2] = [None] * dataPointsToRetrieve
 	for x in xrange(0,len(session[s2])):
-		session[s2][x] = getCodeFromSensor()
+		session[s2][x] = getForFunc2()
 
 
 
