@@ -19,7 +19,7 @@ dataPointsToRetrieve = 15
 
 
 def getCodeFromSensor():
-	fullUrl = urlBase + deviceID + '/' + getFunc + '/?access_token=' + access_token 
+	fullUrl = urlBase + deviceID + '/' + getFunc1 + '/?access_token=' + access_token 
 	try:
 		r = requests.get(fullUrl, timeout=2)
 		if r.status_code > 199 and r.status_code < 300:
