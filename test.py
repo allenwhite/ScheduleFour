@@ -18,6 +18,7 @@ s1 				= 'sessionArray1'
 s2				= 'sessionArray2'
 s1Vals			= 'sessionArray1Values'
 s2Vals			= 'sessionArray2Values'
+sDates			= 'sessionArrayDates'
 
 dataPointsToRetrieve = 15
 
@@ -53,6 +54,7 @@ def getFullSetOfResults():
 	for x in xrange(0,len(session[s1])):
 		session[s1][x] = getForFunc1()
 		session[s1Vals][x] = session[s1][x]['result']
+		session[sDates][x] = session[s1][x]['coreInfo']['last_heard']
 
 	session[s2Vals] = [None] * dataPointsToRetrieve
 	session[s2] = [None] * dataPointsToRetrieve
