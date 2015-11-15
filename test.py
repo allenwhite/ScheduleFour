@@ -67,10 +67,14 @@ def getFullSetOfResults():
 @app.route('/', methods=['GET'])
 def gimmeResults():
 	getFullSetOfResults()
+<<<<<<< HEAD
 	# Do calculations for arrays of values to create one new array, replace the part below
 	# with just one array
 	# return json.dumps({"arrayVals":session[finalVals], "arrayDates":session[sDates]}, DONT NEED INDENT)
 	return json.dumps({"array1":session[s1], "array2":session[s2]}, indent=4)
+=======
+	return json.dumps(session[s1])
+>>>>>>> cd1931c93e5ab306f474eaaac2efc8a09bc45bd7
 
 
 
