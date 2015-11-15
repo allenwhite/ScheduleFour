@@ -16,6 +16,8 @@ getFunc1 		= 'analog_val_1'
 getFunc2 		= 'analog_val_2'
 s1 				= 'sessionArray1'
 s2				= 'sessionArray2'
+s1Vals			= 'sessionArray1Values'
+s2Vals			= 'sessionArray2Values'
 
 dataPointsToRetrieve = 15
 
@@ -47,14 +49,16 @@ def getCodeFromSensor(fullUrl):
 
 def getFullSetOfResults():
 	session[s1] = [None] * dataPointsToRetrieve
+	session[s1Vals] = [None] * dataPointsToRetrieve
 	for x in xrange(0,len(session[s1])):
 		session[s1][x] = getForFunc1()
+		session[s1Vals][x] = session[s1][x]['result']
 
-
+	session[s2Vals] = [None] * dataPointsToRetrieve
 	session[s2] = [None] * dataPointsToRetrieve
 	for x in xrange(0,len(session[s2])):
 		session[s2][x] = getForFunc2()
-
+		session[s2Vals][x] = session[s2][x]['result']
 
 
 @app.route('/', methods=['GET'])
