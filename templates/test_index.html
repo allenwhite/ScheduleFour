@@ -9,11 +9,16 @@
 			var chart;
 			var chartData = [];
 			var chartCursor;
+			/** This var is the length of the data, which is the 2 value arrays from test.py */
+			/** is min 2 because there are 2 arrays passed? or is it the length of the array? */
 			var min = {{ data | length }};
 			var firstDate = new Date();
 			firstDate.setDate(firstDate.getDate() - 500);
 
 			// generate some random data, quite different range
+			/** IS THIS NEEDED IS THIS NEEDED IS THIS NEEDED IS THIS NEEDED */
+			/** IS THIS NEEDED IS THIS NEEDED IS THIS NEEDED IS THIS NEEDED */
+			/** IS THIS NEEDED IS THIS NEEDED IS THIS NEEDED IS THIS NEEDED */
 			function generateChartData() {
 			    for (min = 0; min < {{ data | length }}; min++) {
 			        var newDate = new Date(firstDate);
@@ -27,6 +32,9 @@
 			        });
 			    }
 			}
+			/** IS THIS NEEDED IS THIS NEEDED IS THIS NEEDED IS THIS NEEDED */
+			/** IS THIS NEEDED IS THIS NEEDED IS THIS NEEDED IS THIS NEEDED */
+			/** IS THIS NEEDED IS THIS NEEDED IS THIS NEEDED IS THIS NEEDED */
 
 			// create chart
 			AmCharts.ready(function() {
@@ -94,8 +102,17 @@
 			    // set up the chart to update every second
 			        
 			        // remove datapoint from the beginning
+			        // These iterate over as if json, but after changes will be two arrays NOT json
 			    {% for e in data %}
-				        chart.dataProvider.shift();						
+				        chart.dataProvider.shift();	
+				        /**
+						chart.dataProvider.push({
+							date: AmCharts.formatDate(new Date("{{ e['arrayDate'] }}")
+							, "L:NN:SS.QQ"),
+							visits: {{ e['arrayFinal'] }}
+						});
+						chart.validateData();
+				        */					
 						chart.dataProvider.push({
 						    date: AmCharts.formatDate(new Date("{{ e['coreInfo']['last_heard'] }}"), "L:NN:SS.QQ"),
 						    visits: {{ e['result'] }}

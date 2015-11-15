@@ -67,13 +67,20 @@ def getFullSetOfResults():
 @app.route('/', methods=['GET'])
 def gimmeResults():
 	getFullSetOfResults()
+	# Do calculations for arrays of values to create one new array, replace the part below
+	# with just one array
+	# return json.dumps({"arrayVals":session[finalVals], "arrayDates":session[sDates]}, DONT NEED INDENT)
 	return json.dumps({"array1":session[s1], "array2":session[s2]}, indent=4)
 
 
 
 @app.route('/web', methods=['GET'])
 def web():
+	# This method calculates the values form sensor one (s1Vals) and sensor two (s2Vals) as well as
+	# stores the corresponding dates (sDates)
 	getFullSetOfResults()
+	# This code renders the test_index.html file and passes the data from both sensors in
+	# and then these values are plotted (see the html file)
 	return render_template('test_index.html', data={"array1":session[s1], "array2":session[s2]})
 
 

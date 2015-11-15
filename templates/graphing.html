@@ -132,6 +132,37 @@
 
 			        });
 			    }, 1000);
+
+				/** NEW SHIT NEW SHIT NEW SHIT NEW SHIT NEW SHIT */
+				/** NEW SHIT NEW SHIT NEW SHIT NEW SHIT NEW SHIT */
+				/** NEW SHIT NEW SHIT NEW SHIT NEW SHIT NEW SHIT */
+				/** NEW SHIT NEW SHIT NEW SHIT NEW SHIT NEW SHIT */
+				
+				/**
+				    {% for e in data %}
+					        chart.dataProvider.shift();	
+					        /**
+							chart.dataProvider.push({
+								date: AmCharts.formatDate(new Date("{{ e['arrayDate'] }}")
+								, "L:NN:SS.QQ"),
+								visits: {{ e['arrayFinal'] }}
+							});
+							chart.validateData();
+					        *//**					
+							chart.dataProvider.push({
+							    date: AmCharts.formatDate(new Date("{{ e['coreInfo']['last_heard'] }}"), "L:NN:SS.QQ"),
+							    visits: {{ e['result'] }}
+							});
+							chart.validateData();
+				    {% endfor %}
+				*/	
+
+				
+				/** NEW SHIT NEW SHIT NEW SHIT NEW SHIT NEW SHIT */
+				/** NEW SHIT NEW SHIT NEW SHIT NEW SHIT NEW SHIT */
+				/** NEW SHIT NEW SHIT NEW SHIT NEW SHIT NEW SHIT */
+				/** NEW SHIT NEW SHIT NEW SHIT NEW SHIT NEW SHIT */
+
 			});
 		</script>
 	</head>
