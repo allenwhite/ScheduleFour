@@ -94,99 +94,99 @@ def getFullSetOfResults():
 		# equation form A650 = eHb650 * Chb + eHbo2650 * ChbO2
 
 
-		def concentration(filtered650,filtered950):
-		    print('finding concentration')
-		    mat1 = np.array([[eHb650,eHbO2650],[eHb950,eHbO2950]])
-		    cHb = []
-		    cHbO2 = []
-		    sO2 = []
-		    c = np.array([])
-		    total = 0
-		    avg = 0
-		    for x in  range (filtered650.size):
-		        b = np.array([filtered650[x],filtered950[x]])
-		        try:
-		            c = np.linalg.solve(mat1,b)
-		        except:
-		            print('couldnt solve system of equations')
-		        if c.size != 0:
-		            cHb.append(c[0])
-		            cHbO2.append(c[1])
-		    for h in range(len(cHb)):
-		        l = cHbO2[h] / (cHb[h] + cHbO2[h])
-		        sO2.append(l)
-		        
-		    nuArray = np.array(sO2)
-		    oxy = np.average(reject_outliers(nuArray))
-		    print('the percent oxygenation is ')
-		    print(oxy)
-		    session[soxy] = oxy
-		    print(filtered950)
-		    heartBeat(filtered950)
-		    
+def concentration(filtered650,filtered950):
+    print('finding concentration')
+    mat1 = np.array([[eHb650,eHbO2650],[eHb950,eHbO2950]])
+    cHb = []
+    cHbO2 = []
+    sO2 = []
+    c = np.array([])
+    total = 0
+    avg = 0
+    for x in  range (filtered650.size):
+        b = np.array([filtered650[x],filtered950[x]])
+        try:
+            c = np.linalg.solve(mat1,b)
+        except:
+            print('couldnt solve system of equations')
+        if c.size != 0:
+            cHb.append(c[0])
+            cHbO2.append(c[1])
+    for h in range(len(cHb)):
+        l = cHbO2[h] / (cHb[h] + cHbO2[h])
+        sO2.append(l)
+        
+    nuArray = np.array(sO2)
+    oxy = np.average(reject_outliers(nuArray))
+    print('the percent oxygenation is ')
+    print(oxy)
+    session[soxy] = oxy
+    print(filtered950)
+    heartBeat(filtered950)
+    
 
-		def reject_outliers(data, m = 2.):
-		    d = np.abs(data - np.median(data))
-		    mdev = np.median(d)
-		    s = d/mdev if mdev else 0.
-		    return data[s<m]
+def reject_outliers(data, m = 2.):
+    d = np.abs(data - np.median(data))
+    mdev = np.median(d)
+    s = d/mdev if mdev else 0.
+    return data[s<m]
 
-		def heartBeat(filtered950):
-		     sampleRate = 1
-		     heartBeat = 0
-		     print('in heartbeat')
-		     print(filtered950)
-		     dist = 0
-		     localMax = (diff(sign(diff(filtered950))) < 0).nonzero()[0] + 1 # local max
-		     print('printing local max')
-		     print(localMax)
-		     print(localMax[0])
-		     for z in range (len(localMax)):
-		         if z != 0:
-		             dist = dist + localMax[z] - localMax[z-1]
-		     print(dist)
-		     if dist != 0:
-		        avgDist = dist/len(localMax)
-		        heartBeat = avgDist * sampleRate
+def heartBeat(filtered950):
+     sampleRate = 1
+     heartBeat = 0
+     print('in heartbeat')
+     print(filtered950)
+     dist = 0
+     localMax = (diff(sign(diff(filtered950))) < 0).nonzero()[0] + 1 # local max
+     print('printing local max')
+     print(localMax)
+     print(localMax[0])
+     for z in range (len(localMax)):
+         if z != 0:
+             dist = dist + localMax[z] - localMax[z-1]
+     print(dist)
+     if dist != 0:
+        avgDist = dist/len(localMax)
+        heartBeat = avgDist * sampleRate
 
-		     print(heartBeat)
-		 #    getData()
+     print(heartBeat)
+ #    getData()
 
 
-		def getData():    #function called to get data
-		    
-		    startTime = time.time()
-		    raw650 = np.array(session[s1Vals])
-		    raw950 = np.array(session[s2Vals])
-		  
-		 #   while True:
+def getData():    #function called to get data
+    
+    startTime = time.time()
+    raw650 = np.array(session[s1Vals])
+    raw950 = np.array(session[s2Vals])
+  
+ #   while True:
 
-		   #     if time.time() - startTime >= 5:
-		    startTime = time.time()
-		    print('got data')
-		    working950 = reject_outliers(raw950)
-		    working650 = reject_outliers(raw650)
-		    sig950 = np.std(working950)
-		    sig650 = np.std(working650)
-		    print(sig650)
-		    window950 = signal.general_gaussian(51, p=1.5, sig= sig950)
-		    filtered950 = signal.fftconvolve(window950, working950)
-		    filtered950 = (np.average(working950) / np.average(filtered950)) * filtered950
-		    window650 = signal.general_gaussian(51, p=1.5, sig= sig650)
-		    filtered650 = signal.fftconvolve(window650, working650)
-		    filtered650 = (np.average(working650) / np.average(filtered650)) * filtered650
+   #     if time.time() - startTime >= 5:
+    startTime = time.time()
+    print('got data')
+    working950 = reject_outliers(raw950)
+    working650 = reject_outliers(raw650)
+    sig950 = np.std(working950)
+    sig650 = np.std(working650)
+    print(sig650)
+    window950 = signal.general_gaussian(51, p=1.5, sig= sig950)
+    filtered950 = signal.fftconvolve(window950, working950)
+    filtered950 = (np.average(working950) / np.average(filtered950)) * filtered950
+    window650 = signal.general_gaussian(51, p=1.5, sig= sig650)
+    filtered650 = signal.fftconvolve(window650, working650)
+    filtered650 = (np.average(working650) / np.average(filtered650)) * filtered650
 
-		  #  filtered = np.roll(filtered, -25)
-		 #    plt.plot(working950)
-		 # #   plt.plot(window950)
-		 #    plt.plot(filtered950)
-		 #    plt.plot(raw650)
-		 #    plt.show()
-		    
-		    print(filtered950)
-		    
-		    print(working950)
-		    concentration(filtered650,filtered950)
+  #  filtered = np.roll(filtered, -25)
+ #    plt.plot(working950)
+ # #   plt.plot(window950)
+ #    plt.plot(filtered950)
+ #    plt.plot(raw650)
+ #    plt.show()
+    
+    print(filtered950)
+    
+    print(working950)
+    concentration(filtered650,filtered950)
 
 
 
