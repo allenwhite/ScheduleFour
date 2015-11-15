@@ -103,7 +103,7 @@ def concentration(filtered650,filtered950):
     c = np.array([])
     total = 0
     avg = 0
-    for x in  range (filtered650.size):
+    for x in  range (len(filtered650)):
         b = np.array([filtered650[x],filtered950[x]])
         try:
             c = np.linalg.solve(mat1,b)
