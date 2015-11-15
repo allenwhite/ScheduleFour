@@ -157,7 +157,15 @@ def gimmeResults():
 	# with just one array
 	processData()
 	# return json.dumps({"arrayVals":session[finalVals], "arrayDates":session[sDates]}, DONT NEED INDENT)
-	return json.dumps({"array1":session[s1], "array2":session[s2]}, indent=4)
+	return json.dumps(session[s1])
+
+
+
+
+@app.route('/getBigNumber', methods=['GET'])
+def getBigNumber():
+	pass
+
 
 
 
@@ -168,7 +176,7 @@ def web():
 	getFullSetOfResults()
 	# This code renders the test_index.html file and passes the data from both sensors in
 	# and then these values are plotted (see the html file)
-	return render_template('test_index.html', data={"array1":session[s1], "array2":session[s2]})
+	return render_template('test_index.html', data=session[s1])
 
 
 @app.route('/gen_large_graph', methods=['GET'])
@@ -176,7 +184,7 @@ def genLargeGraph():
 	# See code in '/' for what needs to be done here as well; basically just need to execute the script
 	# greg wrote using the data from this API so that processed values are plotted
 	getFullSetOfResults()
-	return render_template('large_graph.html', data={"array1":session[s1], "array2":session[s2]})
+	return render_template('large_graph.html', data=session[s1])
 
 
 if __name__ == "__main__":
