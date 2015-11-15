@@ -51,6 +51,7 @@ def getCodeFromSensor(fullUrl):
 def getFullSetOfResults():
 	session[s1] = [None] * dataPointsToRetrieve
 	session[s1Vals] = [None] * dataPointsToRetrieve
+	session[sDates] = [None] * dataPointsToRetrieve
 	for x in xrange(0,len(session[s1])):
 		session[s1][x] = getForFunc1()
 		session[s1Vals][x] = session[s1][x]['result']
