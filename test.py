@@ -69,6 +69,7 @@ def getFullSetOfResults():
 	session[sDates] = [None] * dataPointsToRetrieve
 	for x in xrange(0,len(session[s1])):
 		session[s1][x] = getForFunc1()
+		print '! -- ' +  str(session[s1][x])
 		session[s1Vals][x] = session[s1][x]['result']
 		session[sDates][x] = session[s1][x]['coreInfo']['last_heard']
 
