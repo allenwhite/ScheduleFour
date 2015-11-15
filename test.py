@@ -52,7 +52,10 @@ def web():
 	getFullSetOfResults()
 	return render_template('text_index.html', data=session[s])
 
-
+@app.route('/gen_large_graph', methods=['GET'])
+def genLargeGraph():
+	getFullSetOfResults()
+	return render_template('large_graph.html', data=session[s])
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=6969,debug=True)
