@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<style>
+		.fa-device {
+			margin-top: 40%;
+		}
+		.device-block {
+			border-radius: 10px;
+		}
+			.device-block-active {
+				background-color: #DEDEDE;
+			}
+			.device-block:hover {
+				cursor: pointer;
+				background-color: #F0F0F0;
+			}
+		.table-container {
+			margin-top: 50px;
+		}
+		tr:hover {
+			cursor: pointer;
+		}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.device-block').click(function(){
+					$('.device-block').removeClass('device-block-active');
+					$(this).toggleClass('device-block-active');
+				});
+				$('tr').click(function(){
+					window.location = 'large_graph.html';
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="index.html">
+		        <i class="fa fa-lg fa-medkit"></i>
+		        eos Health 
+			  </a>    
+			</div>
+		  
+		    <div class="collapse navbar-collapse" id="main-nav-collapse">
+		      <div class="nav navbar-nav navbar-right">
+		          <form action="index.html" class="button_to" method="post">
+			          <div>
+			          	<input class="btn btn-warning navbar-btn" type="submit" value="Sign Out" />
+			          </div>
+		          </form>
+		      </div>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="/about">About</a></li>
+		        <li><a href="/about">eos Shop</a></li>
+		        <li><a href="/contacts/new">Contact Us</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+		<div class="container-fluid device-block-container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-1 device-block device-block-active">
+					<div class="row">
+						<div class="col-md-2">
+							<i class="fa fa-clock-o fa-3x fa-device"></i>
+						</div>
+						<div class="col-md-10">
+							<h4>DEVICE_NAME_1</h4>
+							<h5>description of the device; may contain information about the user or something</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-md-offset-1 device-block">
+					<div class="row">
+						<div class="col-md-2">
+							<i class="fa fa-clock-o fa-3x fa-device"></i>
+						</div>
+						<div class="col-md-10">
+							<h4>DEVICE_NAME_2</h4>
+							<h5>description of the device; may contain information about the user or something</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row table-container">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="well">
+						<h1 class="text-center">Your Data</h1>
+						<table class="table">
+							<tr>
+								<th>Substance</th>
+								<th>Your Daily Score</th>
+								<th>National Average</th>
+								<th>Your Overall Score</th>
+							</tr>
+							<tr class="success">
+								<td>Substance X</td>
+								<td>##</td>
+								<td>##</td>
+								<td>##</td>
+							</tr>
+							<tr class="success">
+								<td>Substance Y</td>
+								<td>##</td>
+								<td>##</td>
+								<td>##</td>
+							</tr>
+							<tr class="active">
+								<td>Substance Z</td>
+								<td>##</td>
+								<td>##</td>
+								<td>##</td>
+							</tr>
+							<tr class="warning">
+								<td>Substance Z</td>
+								<td>##</td>
+								<td>##</td>
+								<td>##</td>
+							</tr>
+							<tr class="danger">
+								<td>Substance Z</td>
+								<td>##</td>
+								<td>##</td>
+								<td>##</td>
+							</tr>
+						</table>
+						<div class="row">
+							<div class="col-md-2 col-md-offset-5">
+								<form action="graphing.html">
+				          			<input class="btn btn-primary" name="commit" type="submit" value="View Graphs" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

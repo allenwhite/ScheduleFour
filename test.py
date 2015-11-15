@@ -50,7 +50,7 @@ def gimmeResults():
 @app.route('/web', methods=['GET'])
 def web():
 	getFullSetOfResults()
-	return render_template('index.html', data=session[s])
+	return render_template('text_index.html', data=session[s])
 
 
 

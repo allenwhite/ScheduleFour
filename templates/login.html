@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+		<style>
+			body {
+				background-image: url(images/field_image_overlay.png);
+			}
+			.main-text{
+				font-family: 'raleway';
+				font-weight: bolder;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="index.html">
+		        <i class="fa fa-lg fa-medkit"></i>
+		        eos Health 
+			  </a>    
+			</div>
+		  
+		    <div class="collapse navbar-collapse" id="main-nav-collapse">
+		      <div class="nav navbar-nav navbar-right">
+		          <form action="login.html" class="button_to" method="post">
+			          <div>
+			          	<input class="btn btn-success navbar-btn" type="submit" value="Sign Up" />
+			          	<input class="btn btn-primary navbar-btn" type="submit" value="Login" />
+			          </div>
+		          </form>
+		      </div>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="/about">About</a></li>
+		        <li><a href="/about">eos Shop</a></li>
+		        <li><a href="/contacts/new">Contact Us</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<h2 class="main-text"><span style="color:#fff">Login</span></h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="well">
+					<form accept-charset="UTF-8" action="dashboard.html" method="#">
+				        <input id="plan" name="plan" type="hidden" value="1" />
+				      
+				        <div class="field form-group">
+				          <label for="#">Username</label><br />
+				          <input autofocus="autofocus" class="form-control" id="username" type="text" value="" />
+				        </div>
+				      
+				        <div class="field form-group">
+				          <label for="user_password">Password</label>
+				          <br />
+				          <input autocomplete="off" class="form-control" id="password" type="password" />
+				        </div>
+				      
+				        <div class="actions form-group">
+				          <input class="btn btn-primary" name="commit" type="submit" value="Login" />
+				        </div>
+				    </form>
+				    <a href="/users/sign_in">Sign Up</a><br />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
