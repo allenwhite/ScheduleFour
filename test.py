@@ -12,7 +12,7 @@ app.secret_key = 'dotBOTRuleZ'
 urlBase 		= 'https://api.spark.io/v1/devices/'
 access_token 	= '25dfc450c2733a52989c60ddc96c0944e45f54c1'
 deviceID 		= '1f0036000147343337373738'
-getFunc 		= 'analog_value'
+getFunc1 		= 'analog_val_1'
 s 				= 'sessionArray'
 
 dataPointsToRetrieve = 15
