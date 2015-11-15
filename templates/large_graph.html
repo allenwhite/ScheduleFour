@@ -91,7 +91,6 @@
 
 			        requestURL = "https://api.spark.io/v1/devices/" + deviceID + "/" + getFunc + "/?access_token=" + accessToken;
 			        $.getJSON(requestURL, function(json){
-			        	console.log(json.result + "units");
 			        	visits = parseInt(json.result);
 
 			        	// remove datapoint from the beginning if at least 50 data points
