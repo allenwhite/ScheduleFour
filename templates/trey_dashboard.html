@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<style>
+		.navbar {
+			margin-bottom: 0px;
+		}
 		.fa-device {
 			margin-top: 40%;
 		}
+		.devices {
+			background-color: #CBCBCB;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
 		.device-block {
 			border-radius: 10px;
-			border: solid #F0F0F0 5px;
+			margin-left: 10px;
 		}
 			.device-block-active {
-				background-color: #F0F0F0;
+				color: #614CFF;
 			}
 			.device-block:hover {
+				color: #614CFF;
 				cursor: pointer;
-				background-color: #F0F0F0;
 			}
 		.table-container {
 			margin-top: 50px;
@@ -35,6 +45,12 @@
 				});
 				$('tr').click(function(){
 					window.location = '/gen_large_graph';
+				});
+				$('.trey-eos').click(function(){
+					window.location ="trey_dashboard.html"
+				});
+				$('.allen-eos').click(function(){
+					window.location ="allen_dashboard.html"
 				});
 			});
 		</script>
@@ -72,26 +88,26 @@
 		  </div>
 		</nav>
 		<div class="container-fluid device-block-container">
-			<div class="row">
-				<div class="col-md-4 col-md-offset-1 device-block device-block-active">
+			<div class="row devices">
+				<div class="col-md-4 col-md-offset-1 device-block device-block-active trey-eos">
 					<div class="row">
 						<div class="col-md-2">
 							<i class="fa fa-clock-o fa-3x fa-device"></i>
 						</div>
 						<div class="col-md-10">
-							<h4>DEVICE_NAME_1</h4>
-							<h5>description of the device; may contain information about the user or something</h5>
+							<h4>Ian's eos</h4>
+							<h5>Ian Hansborough's eos for personal use</h5>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 col-md-offset-1 device-block">
+				<div class="col-md-4 device-block allen-eos">
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-md-2 trey-eos">
 							<i class="fa fa-clock-o fa-3x fa-device"></i>
 						</div>
-						<div class="col-md-10">
-							<h4>DEVICE_NAME_2</h4>
-							<h5>description of the device; may contain information about the user or something</h5>
+						<div class="col-md-10 allen-eos">
+							<h4>Allen's eos</h4>
+							<h5>Allen White's eos for developmental purposes</h5>
 						</div>
 					</div>
 				</div>
@@ -104,38 +120,32 @@
 							<tr>
 								<th>Substance</th>
 								<th>Your Daily Score</th>
-								<th>National Average</th>
-								<th>Your Overall Score</th>
+								<th>Optimal</th>
+								<th>Your Average Score</th>
 							</tr>
 							<tr class="success">
-								<td>Substance X</td>
-								<td>##</td>
-								<td>##</td>
-								<td>##</td>
-							</tr>
-							<tr class="success">
-								<td>Substance Y</td>
-								<td>##</td>
-								<td>##</td>
-								<td>##</td>
-							</tr>
-							<tr class="active">
-								<td>Substance Z</td>
-								<td>##</td>
-								<td>##</td>
-								<td>##</td>
+								<td>Oxygen</td>
+								<td>A</td>
+								<td>B+</td>
+								<td>A-</td>
 							</tr>
 							<tr class="warning">
-								<td>Substance Z</td>
-								<td>##</td>
-								<td>##</td>
-								<td>##</td>
+								<td>Glucose</td>
+								<td>C+</td>
+								<td>B</td>
+								<td>C</td>
+							</tr>
+							<tr class="active">
+								<td>Cholesterol</td>
+								<td>B</td>
+								<td>B</td>
+								<td>B</td>
 							</tr>
 							<tr class="danger">
-								<td>Substance Z</td>
-								<td>##</td>
-								<td>##</td>
-								<td>##</td>
+								<td>Blood Alcohol</td>
+								<td>F</td>
+								<td>B+</td>
+								<td>D-</td>
 							</tr>
 						</table>
 						<div class="row">
@@ -149,5 +159,6 @@
 				</div>
 			</div>
 		</div>
+		<h4 style="margin-left:20px">*this data is currently arbitrary</h4>
 	</body>
 </html>

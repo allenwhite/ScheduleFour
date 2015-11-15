@@ -25,15 +25,11 @@
 			}
 		</style>
 		<script type="text/javascript">
-			// $(document).ready(function(){
-			// 	$('.submit-btn').click(function(){
-			// 		if($('#username').value !== "treyhakanson" || $('#password').value !== "password123"){
-			// 			alert("Username or Password was incorrect.");
-			// 		}else {
-			// 			window.location = "dashboard.html";
-			// 		}
-			// 	});
-			// });
+			$(document).ready(function(){
+				$('.btn-success').click(function(){
+					alert("We're sorry, but we cannot take any new members at this time.");
+				});
+			});
 		</script>
 	</head>
 	<body>
@@ -71,13 +67,13 @@
 		</nav>
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
-				<h2 class="main-text"><span style="color:#fff">Login</span></h2>
+				<h2 class="main-text"><span style="color:#fff">Sign Up</span></h2>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
 				<div class="well">
-					<form accept-charset="UTF-8" action="trey_dashboard.html">
+					<form accept-charset="UTF-8" method="#">
 				        <input id="plan" name="plan" type="hidden" value="1" />
 				      
 				        <div class="field form-group">
@@ -85,17 +81,28 @@
 				          <input autofocus="autofocus" class="form-control" id="username" type="text" value="" />
 				        </div>
 				      
+						<div class="field form-group">
+				          <label for="#">email</label><br />
+				          <input autofocus="autofocus" class="form-control" id="username" type="text" value="" />
+				        </div>
+
 				        <div class="field form-group">
 				          <label for="user_password">Password</label>
 				          <br />
 				          <input autocomplete="off" class="form-control" id="password" type="password" />
 				        </div>
+
+				        <div class="field form-group">
+				          <label for="user_password">Re-Password</label>
+				          <br />
+				          <input autocomplete="off" class="form-control" id="password" type="password" />
+				        </div>
 				      
 				        <div class="actions form-group">
-				          <input class="btn btn-primary submit-btn" name="commit" type="submit" value="Login" />
+				          <input class="btn btn-success submit-btn" name="commit" type="submit" value="Sign Up" />
 				        </div>
 				    </form>
-				    <a href="sign_up.html">Sign Up</a><br />
+				    <a href="login.html">Login</a><br />
 				</div>
 			</div>
 		</div>

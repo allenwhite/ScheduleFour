@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
@@ -141,7 +143,7 @@
 				/** NEW SHIT NEW SHIT NEW SHIT NEW SHIT NEW SHIT */
 				/** NEW SHIT NEW SHIT NEW SHIT NEW SHIT NEW SHIT */
 				/** NEW SHIT NEW SHIT NEW SHIT NEW SHIT NEW SHIT */
-				
+
 			});
 		</script>
 		<style>
@@ -151,7 +153,21 @@
 			.tip-heading{
 				margin-bottom: 30px;
 			}
+			.back-arrow {
+				margin-top: 100%;
+				margin-left: 50%;
+			}
+				.back-arrow:hover {
+					cursor: pointer;
+				}
 		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.back-arrow').click(function(){
+					window.location = "trey_dashboard.html";
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
@@ -186,7 +202,10 @@
 		  </div>
 		</nav>
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-2">	
+				<i class="fa fa-4x fa-chevron-left back-arrow"></i>
+			</div>
+			<div class="col-md-8">
 				<div class="well">
 					<h1 class="text-center">Substance C</h1>
 					<div id="chart1div" style="width: 100%; height: 340px;"></div>
