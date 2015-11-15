@@ -178,6 +178,29 @@ def web():
 	# and then these values are plotted (see the html file)
 	return render_template('test_index.html', data=session[s1])
 
+@app.route('/home', methods=['GET'])
+def home():
+	return render_template('index.html')
+
+@app.route('/login', methods=['GET'])
+def login():
+	return render_template('login.html')
+
+@app.route('/sign_up', methods=['GET'])
+def signUp():
+	return render_template('sign_up.html')
+
+@app.route('/trey_dashboard', methods=['GET'])
+def treyDashboard():
+	return render_template('trey_dashboard.html')
+	
+@app.route('/allen_dashboard', methods=['GET'])
+def allenDashboard():
+	return render_template('allen_dashboard.html')
+
+@app.route('/home', methods=['GET'])
+def home():
+	return render_template('index.html')
 
 @app.route('/gen_large_graph', methods=['GET'])
 def genLargeGraph():
