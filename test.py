@@ -69,6 +69,7 @@ def gimmeResults():
 	getFullSetOfResults()
 	# Do calculations for arrays of values to create one new array, replace the part below
 	# with just one array
+	processData()
 	# return json.dumps({"arrayVals":session[finalVals], "arrayDates":session[sDates]}, DONT NEED INDENT)
 	return json.dumps({"array1":session[s1], "array2":session[s2]}, indent=4)
 
@@ -86,6 +87,8 @@ def web():
 
 @app.route('/gen_large_graph', methods=['GET'])
 def genLargeGraph():
+	# See code in '/' for what needs to be done here as well; basically just need to execute the script
+	# greg wrote using the data from this API so that processed values are plotted
 	getFullSetOfResults()
 	return render_template('large_graph.html', data={"array1":session[s1], "array2":session[s2]})
 
