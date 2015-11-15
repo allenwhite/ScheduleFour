@@ -60,7 +60,7 @@ def getFullSetOfResults():
 @app.route('/', methods=['GET'])
 def gimmeResults():
 	getFullSetOfResults()
-	return json.dumps({"array1":session[s1], "array2":session[s2]})
+	return json.dumps({"array1":session[s1], "array2":session[s2]}, indent=4)
 
 
 
