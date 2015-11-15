@@ -150,6 +150,11 @@ def getData():    #function called to get data
            heartbeat(raw950)
 
 
+@app.route('/images/<path:path>')
+def send_static_file_redactor(path):
+	return send_from_directory('images', path)
+
+
 
 @app.route('/', methods=['GET'])
 def gimmeResults():
@@ -180,6 +185,7 @@ def web():
 
 @app.route('/home', methods=['GET'])
 def home():
+
 	return render_template('index.html')
 
 @app.route('/login', methods=['GET'])
@@ -198,9 +204,6 @@ def treyDashboard():
 def allenDashboard():
 	return render_template('allen_dashboard.html')
 
-@app.route('/home', methods=['GET'])
-def home():
-	return render_template('index.html')
 
 @app.route('/gen_large_graph', methods=['GET'])
 def genLargeGraph():
