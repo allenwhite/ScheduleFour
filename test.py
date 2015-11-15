@@ -180,7 +180,7 @@ def web():
 
 @app.route('/home', methods=['GET'])
 def home():
-	
+
 	return render_template('index.html')
 
 @app.route('/login', methods=['GET'])
@@ -199,9 +199,6 @@ def treyDashboard():
 def allenDashboard():
 	return render_template('allen_dashboard.html')
 
-@app.route('/home', methods=['GET'])
-def home():
-	return render_template('index.html')
 
 @app.route('/gen_large_graph', methods=['GET'])
 def genLargeGraph():
