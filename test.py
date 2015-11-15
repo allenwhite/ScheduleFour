@@ -156,7 +156,7 @@ def gimmeResults():
 	getFullSetOfResults()
 	# Do calculations for arrays of values to create one new array, replace the part below
 	# with just one array
-	processData()
+	# processData()
 	# return json.dumps({"arrayVals":session[finalVals], "arrayDates":session[sDates]}, DONT NEED INDENT)
 	return json.dumps(session[s1])
 
