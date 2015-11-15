@@ -252,8 +252,8 @@ def genLargeGraph():
 	# See code in '/' for what needs to be done here as well; basically just need to execute the script
 	# greg wrote using the data from this API so that processed values are plotted
 	getFullSetOfResults()
-
-	return render_template('large_graph.html', data=session[s1])
+	getData()
+	return render_template('large_graph.html', data=session[s1], bigvalue=session[soxy])
 
 
 if __name__ == "__main__":
